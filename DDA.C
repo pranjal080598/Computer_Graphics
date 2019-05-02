@@ -1,0 +1,41 @@
+#include <graphics.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <conio.h>
+void main()
+{
+   int gdriver = DETECT, gmode, errorcode;
+   float x1,y1,x2,y2,dx,dy,len,x,y;
+   int i;
+   printf("enter x1 and y1\n");
+   scanf("%f%f",&x1,&y1);
+   printf("enter x2 and y2\n");
+   scanf("%f%f",&x2,&y2);
+   initgraph(&gdriver, &gmode, "c:\\tc\\bgi");
+   dx=abs(x2-x1);
+   dy=abs(y2-y1);
+   if(dx>=dy)
+   {
+	len=dx;
+   }
+   else
+   {
+	len=dy;
+   }
+   dx=(x2-x1)/len;
+   dy=(y2-y1)/len;
+   x=x1+0.5;
+   y=y1+0.5;
+   i=0;
+   while(i<=len)
+   {
+	putpixel(x,y,9);
+	x=x+dx;
+	y=y+dy;
+	i=i+1;
+	delay(200);
+   }
+   closegraph();
+   getch();
+}
+

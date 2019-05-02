@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+void main()
+{
+	unsigned long temp,p,g,a,b,y,c,d,z,e,f;
+	char o[10];
+	int len,i,j;
+	clrscr();
+	printf("Enter p and g \n");
+	scanf("%lu %lu",&p,&g);
+	printf("Enter a and b \n");
+	scanf("%lu %lu",&a,&b);
+	y=pow(g,a);
+	c=y % p;
+	z=pow(g,b);
+	d=z % p;
+	printf("c=%lu d=%lu \n",c,d);
+	temp=c;
+	c=d;
+	d=temp;
+	printf("After Exchange \n");
+	printf("c=%lu d=%lu \n",c,d);
+	c=pow(z,a);
+	e=c % p;
+	d=pow(y,b);
+	f=d % p;
+	printf("Final Ans \n");
+	printf("e=%lu f=%lu \n",e,f);
+	printf("Enter name\n");
+	scanf("%s",o);
+	len=strlen(o);
+	for(i=0;i<len;i++)
+	{
+		o[i]=o[i]+e;
+	}
+	printf("Encrypted Name = %s",o);
+	getch();
+}
